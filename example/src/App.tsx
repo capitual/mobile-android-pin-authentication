@@ -29,19 +29,19 @@ export default function App() {
     try {
       const success = await authenticatePinAndroid();
       if (success) {
-        Alert.alert('successful authentication');
+        Alert.alert('Successful Authentication');
       } else {
-        Alert.alert('authentication failed');
+        Alert.alert('Authentication Failed');
       }
     } catch (e) {
-      Alert.alert('Error authenticating PIN');
+      Alert.alert('Error Authenticating PIN');
     }
   };
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={authenticate}>
-        <Text style={styles.text}>android authentication</Text>
+        <Text style={styles.text}>Android Authentication</Text>
       </TouchableOpacity>
     </View>
   );
