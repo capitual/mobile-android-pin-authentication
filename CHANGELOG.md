@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/capitual/mobile-android-pin-authentication/compare/v1.0.0...v1.1.0) (2023-06-30)
+
+
+### Features
+
+* add codeowners and pr template ([9a8366c](https://github.com/capitual/mobile-android-pin-authentication/commit/9a8366cc80d3bb22e6369d14cb4018d57b3494ff))
+
 # 1.0.0 (2023-06-30)
 
 
