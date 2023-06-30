@@ -41,7 +41,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={authenticate}>
-        <Text style={styles.text}>authenticate</Text>
+        <Text style={styles.text}>android authentication</Text>
       </TouchableOpacity>
     </View>
   );
