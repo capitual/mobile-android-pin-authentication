@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/capitual/mobile-android-pin-authentication/compare/v1.1.0...v1.1.1) (2023-06-30)
+
+
+### Bug Fixes
+
+* alerts ([#2](https://github.com/capitual/mobile-android-pin-authentication/issues/2)) ([87635ff](https://github.com/capitual/mobile-android-pin-authentication/commit/87635ff4a45d519ca97f9b924b3362cd608c96ed))
+
 # [1.1.0](https://github.com/capitual/mobile-android-pin-authentication/compare/v1.0.0...v1.1.0) (2023-06-30)
 
 
