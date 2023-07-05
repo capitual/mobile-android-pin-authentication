@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/capitual/mobile-android-pin-authentication/compare/v1.1.2...v1.2.0) (2023-07-05)
+
+
+### Features
+
+* add is avalilable option ([a332968](https://github.com/capitual/mobile-android-pin-authentication/commit/a3329680161fe3a1ced61548831257684f50c6a4))
+
 ## [1.1.2](https://github.com/capitual/mobile-android-pin-authentication/compare/v1.1.1...v1.1.2) (2023-06-30)
 
 
