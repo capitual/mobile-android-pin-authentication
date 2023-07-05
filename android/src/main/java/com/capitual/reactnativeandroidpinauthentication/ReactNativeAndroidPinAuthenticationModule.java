@@ -49,11 +49,19 @@ public class ReactNativeAndroidPinAuthenticationModule extends ReactContextBaseJ
     if (keyguardManager.isKeyguardSecure()) {
       Intent intent = keyguardManager.createConfirmDeviceCredentialIntent(null, null);
       if (intent != null) {
-      getCurrentActivity().startActivityForResult(intent, REQUEST_CODE_PIN_VALIDATION);
+        getCurrentActivity().startActivityForResult(intent, REQUEST_CODE_PIN_VALIDATION);
       }
-    } else {
-      Log.d("PinAuthentication", "No PIN or lock screen set");
-      callback.invoke(false);
+    }
+  }
+
+  @ReactMethod
+  public void isAvailablePin(Callback callback) {
+    this.authCallback = callback;
+    if(keyguardManager.isKeyguardSecure()){
+      authCallback.invoke(true);
+    }
+    else{
+      authCallback.invoke(false);
     }
   }
 

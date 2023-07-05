@@ -23,3 +23,11 @@ export function authenticatePinAndroid(): Promise<boolean> {
     });
   });
 }
+
+export function isAvailablePin(): Promise<boolean> {
+  return new Promise((resolve, _) => {
+    RNmodule.isAvailablePin((res: boolean) => {
+      resolve(res);
+    });
+  });
+}

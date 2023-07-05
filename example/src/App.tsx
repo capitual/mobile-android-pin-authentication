@@ -1,6 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, Alert, StyleSheet } from 'react-native';
-import { authenticatePinAndroid } from '@capitual/react-native-android-pin-authentication';
+import {
+  authenticatePinAndroid,
+  isAvailablePin,
+} from '@capitual/react-native-android-pin-authentication';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,6 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'black',
+    marginVertical: 10,
   },
   text: {
     textAlign: 'center',
@@ -25,9 +29,19 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-  const authenticate = async () => {
+  const handleIsAvailable = async () => {
+    const success = await isAvailablePin();
+    if (success) {
+      Alert.alert('Pin is available');
+    } else {
+      Alert.alert('Pin is not available');
+    }
+  };
+
+  const handleAuthenticate = async () => {
     try {
       const success = await authenticatePinAndroid();
+
       if (success) {
         Alert.alert('Successful Authentication');
       } else {
@@ -40,7 +54,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={authenticate}>
+      <TouchableOpacity style={styles.button} onPress={handleIsAvailable}>
+        <Text style={styles.text}>Is available? </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={handleAuthenticate}>
         <Text style={styles.text}>Android Authentication</Text>
       </TouchableOpacity>
     </View>
