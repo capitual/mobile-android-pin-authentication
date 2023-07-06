@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/capitual/mobile-android-pin-authentication/compare/v1.2.0...v1.2.1) (2023-07-06)
+
+
+### Bug Fixes
+
+* open authenticate pin error ([de294a8](https://github.com/capitual/mobile-android-pin-authentication/commit/de294a80179f65f5de47cfa9ba0ff959706f0f90))
+
 # [1.2.0](https://github.com/capitual/mobile-android-pin-authentication/compare/v1.1.2...v1.2.0) (2023-07-05)
 
 

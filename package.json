@@ -1,6 +1,6 @@
 {
   "name": "@capitual/react-native-android-pin-authentication",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Android authentication pin adapter to React Native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
