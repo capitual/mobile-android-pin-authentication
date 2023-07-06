@@ -23,6 +23,7 @@ public class ReactNativeAndroidPinAuthenticationModule extends ReactContextBaseJ
   private KeyguardManager keyguardManager;
   private ReactApplicationContext reactContext;
   private Callback authCallback;
+  private Boolean isAvailable = false;
   private final ActivityEventListener activityEventListener = new BaseActivityEventListener() {
   @Override
   public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
@@ -43,25 +44,30 @@ public class ReactNativeAndroidPinAuthenticationModule extends ReactContextBaseJ
     this.reactContext.addActivityEventListener(activityEventListener);
   }
 
-  @ReactMethod
-   public void authenticatePin(Callback callback) {
-   this.authCallback = callback;
-    if (keyguardManager.isKeyguardSecure()) {
-      Intent intent = keyguardManager.createConfirmDeviceCredentialIntent(null, null);
-      if (intent != null) {
-        getCurrentActivity().startActivityForResult(intent, REQUEST_CODE_PIN_VALIDATION);
-      }
-    }
+  private void isAvailable() {
+    this.isAvailable = keyguardManager.isKeyguardSecure();
   }
 
   @ReactMethod
   public void isAvailablePin(Callback callback) {
+    isAvailable();
     this.authCallback = callback;
-    if(keyguardManager.isKeyguardSecure()){
-      authCallback.invoke(true);
-    }
-    else{
-      authCallback.invoke(false);
+    if (this.isAvailable) {
+       authCallback.invoke(true);
+     } else {
+       authCallback.invoke(false);
+     }
+  }
+
+  @ReactMethod
+   public void authenticatePin(Callback callback) {
+    isAvailable();
+   this.authCallback = callback;
+    if (this.isAvailable) {
+      Intent intent = keyguardManager.createConfirmDeviceCredentialIntent(null, null);
+      if (intent != null) {
+        getCurrentActivity().startActivityForResult(intent, REQUEST_CODE_PIN_VALIDATION);
+      }
     }
   }
 
